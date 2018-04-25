@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+   
+   
+   <!-- Start of DB Stuff -->
+	<!-- This produces a container-managed EntityManagerFactory; rather than 
+		application-managed EntityManagerFactory as in case of LocalEntityManagerFactoryBean -->
+	<bean id="entityManagerFactoryBean"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- This makes /META-INF/persistence.xml is no longer necessary -->
+		<property name="packagesToScan" value="com.web.bl.model" />
+		<!-- JpaVendorAdapter implementation for Hibernate EntityManager. Exposes 
+			Hibernate's persistence provider and EntityManager extension interface -->
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<!-- Simple implementation of the standard JDBC DataSource interface, configuring 
+		the plain old JDBC DriverManager via bean properties -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" /> <property 
+		name="url" value="jdbc:oracle:thin:@10.10.31.152:1521:inpaths" /> <property name="username" 
+		value="EADDRESS" /> <property name="password" value="EADDRESS" /> </bean>
+   
+   
+   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactoryBean" />
+	</bean>
+
+	<!-- responsible for registering the necessary Spring components that power 
+		annotation-driven transaction management; such as when @Transactional methods 
+		are invoked -->
+	<tx:annotation-driven />
+	<!-- End of DB Stuff -->
+   
+   <context:annotation-config></context:annotation-config>
+   <context:component-scan base-package = "com.web.bl" />
+   
+   <mvc:annotation-driven/>
+   <mvc:resources mapping="/resources/**" location="/resources/" />
+   
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	   	<property name="prefix">
+	   		<value>/WEB-INF/</value>
+	   	</property>
+	   	<property name="suffix">
+			<value>.jsp</value>
+		</property>    	
+   	
+   </bean>   
+</beans> 
