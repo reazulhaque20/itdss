@@ -53,19 +53,19 @@ public class GetEmail {
 		return new ResponseEntity<Emails>(emails, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/getEmail", method=RequestMethod.POST)
+	/*@RequestMapping(value="/getEmail", method=RequestMethod.POST)
 	public ResponseEntity<UserEmailWrapper> getEmail(@RequestBody UserEmailWrapper userEmailWrapper){
 		
 		
 		
 		return new ResponseEntity<UserEmailWrapper>(userEmailWrapper, HttpStatus.OK);
-	}
+	}*/
 	
 	@RequestMapping(value="/setEmail", method=RequestMethod.GET)
 	public ResponseEntity<UserEmailWrapper> setEmail(){
 		
 		UserEmail userEmail = new UserEmail();
-		List<UserEmail> listUserEmail = new ArrayList();
+		List<UserEmail> listUserEmail = new ArrayList<UserEmail>();
 		
 		userEmail.setEmail("reazul.haque@banglalink.net");
 		userEmail.setBillCycle(5);
