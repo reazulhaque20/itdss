@@ -54,7 +54,7 @@
     <script src="resources/bower_components/morrisjs/morris.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="resources/js/custom.min.js"></script>
-    <script src="resources/js/dashboard1.js"></script>
+    <!-- <script src="resources/js/dashboard1.js"></script> -->
     <!-- Sparkline chart JavaScript -->
     <script src="resources/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
     <script src="resources/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
@@ -84,6 +84,7 @@
     </script>
     <!--Style Switcher -->
     <script src="resources/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    
 </head>
 <body>
 <!-- Preloader -->
@@ -93,12 +94,9 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header"> 
-            <a id="test" class="navbar-toggle hidden-sm hidden-md hidden-lg " href="#" data-toggle="collapse" data-target=".navbar-collapse" >
-            	<i class="ti-menu"></i>
-            </a>
+            <div class="navbar-header"> <img alt="banner" width="800" height="60" src="resources/images/bl-banner.png"/>
                 <div class="top-left-part">
-                	<a class="logo" href="index.html">
+                	<a class="logo" href="index">
                 		<b><!--This is dark logo icon-->
                 			<img id="logoBL" src="resources/images/eliteadmin-logo-dark.png" alt="home" class="dark-logo" />
                 			<!--This is light logo icon-->
@@ -120,20 +118,12 @@
                     		<i class="icon-arrow-left-circle ti-menu"></i>
                     	</a>
                     </li>
-                    <!-- <li>
-                        <form role="search" class="app-search hidden-xs">
-                            <input type="text" placeholder="Search..." class="form-control">
-                            	<a href="">
-                            		<i class="fa fa-search"></i>
-                            	</a>
-                        </form>
-                    </li> -->
                 </ul>
                 
                 <!-- For Top Left Menu -->
                 
-                <!-- <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li class="dropdown" style="padding-top: 0%; margin-bottom: 0%;"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-envelope" style="padding-top: 0%; margin-bottom: -10%;"></i>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                   <!-- <li class="dropdown" style="padding-top: 0%; margin-bottom: 0%;"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-envelope"></i>
           <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
           </a>
                         <ul class="dropdown-menu mailbox animated bounceInDown">
@@ -171,24 +161,25 @@
                                 <a class="text-center" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="fa fa-angle-right"></i> </a>
                             </li>
                         </ul>
-                        /.dropdown-messages
-                    </li>
-                    /.dropdown
-                    <li class="dropdown" style="padding-top: 10%; margin-bottom: -10%;"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-note"></i>
-          <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                        <!-- /.dropdown-messages
+                    </li> -->
+                    <!-- /.dropdown -->
+                    <li class="dropdown""> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="">Shakil Ahmed</i>
+          <!-- <div class="notify"><span class="heartbit"></span><span class="point"></span></div> -->
           </a>
-                        <ul class="dropdown-menu dropdown-tasks animated slideInUp">
+                        <ul class="dropdown-menu animated flipInY">
                             <li>
-                                <a href="#">
+                                <a href="logout">
                                     <div>
-                                        <p> <strong>Task 1</strong> <span class="pull-right text-muted">40% Complete</span> </p>
-                                        <div class="progress progress-striped active">
+                                        <p> <i class="fa fa-power-off"></i> <span class="text-muted">LOGOUT</span> </p>
+                                        <!-- <div class="progress progress-striped active">
                                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
-                                        </div>
+                                        </div> -->
+                                        
                                     </div>
                                 </a>
                             </li>
-                            <li class="divider"></li>
+                            <!-- <li class="divider"></li>
                             <li>
                                 <a href="#">
                                     <div>
@@ -224,13 +215,13 @@
                             <li class="divider"></li>
                             <li>
                                 <a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
-                            </li>
+                            </li> -->
                         </ul>
-                        /.dropdown-tasks
+                        <!-- /.dropdown-tasks -->
                     </li>
-                    /.dropdown
-                    .Megamenu
-                    <li class="mega-dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><span class="hidden-xs">Mega</span> <i class="icon-options-vertical"></i></a>
+                    <!-- /.dropdown
+                    .Megamenu -->
+                    <!-- <li class="mega-dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><span class="hidden-xs">Mega</span> <i class="icon-options-vertical"></i></a>
                         <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown">
                             <li class="col-sm-3">
                                 <ul>
@@ -309,36 +300,33 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    /.Megamenu
-                    <li class="right-side-toggle" style="padding-top: 10%; margin-bottom: -10%;"> <a class="waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
-                    /.dropdown
-                </ul> -->
+                    </li> -->
+                    <!-- /.Megamenu -->
+                    <!-- <li class="right-side-toggle" style="padding-top: 10%; margin-bottom: -10%;"> <a class="waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li> -->
+                    <!-- /.dropdown -->
+                </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
         <!-- Left navbar-header -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
-                <div class="user-profile">
+                <!-- <div class="user-profile">
                     <div class="dropdown user-pro-body">
-                        <!-- <div>
+                        <div>
                         	<img src="resources/images/users/1.jpg" alt="user-img" class="img-circle">
-                        </div> --> 
+                        </div> 
                         <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Steave Gection <span class="caret"></span></a>
                         <ul class="dropdown-menu animated flipInY">
-                            <!-- <li><a href="#"><i class="ti-user"></i> My Profile</a></li> -->
-                            <!-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li> -->
-                            <!-- <li><a href="#"><i class="ti-email"></i> Inbox</a></li> -->
-                            <!-- <li role="separator" class="divider"></li> -->
-                            <!-- <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li> -->
-                            <!-- <li role="separator" class="divider"></li> -->
+                            <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                            <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+                            <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                            <li role="separator" class="divider"></li>
                             <li><a href="login.html"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search hidden-sm hidden-md hidden-lg">
                         <!-- input-group -->
@@ -357,9 +345,10 @@
                     			</span>
                     	</a>
                         <ul class="nav nav-second-level">
-                            <li> <a href="index.html">Minimalistic</a> </li>
+                            <li> <a href="user">User</a> </li>
                             <li> <a href="index2.html">Demographical</a> </li>
                             <li> <a href="index3.html">Analitical</a> </li>
+                            <li> <a href="index4.html">Simpler</a> </li>
                             <li> <a href="index4.html">Simpler</a> </li>
                         </ul>
                     </li>
@@ -573,7 +562,8 @@
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
-                <div class="row bg-title">
+            <br/>
+                <!-- <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Dashboard 1</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="#" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Test</a>
@@ -582,8 +572,7 @@
                             <li class="active">Dashboard 1</li>
                         </ol>
                     </div>
-                    <!-- /.col-lg-12 -->
-                </div>
+                </div> -->
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
