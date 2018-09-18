@@ -6,23 +6,21 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:jee="http://www.springframework.org/schema/jee"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
    
    
    <!-- Start of DB Stuff -->
-	<!-- This produces a container-managed EntityManagerFactory; rather than 
-		application-managed EntityManagerFactory as in case of LocalEntityManagerFactoryBean -->
+   
 	<bean id="entityManagerFactoryBean"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- This makes /META-INF/persistence.xml is no longer necessary -->
 		<property name="packagesToScan" value="com.web.bl.model" />
-		<!-- JpaVendorAdapter implementation for Hibernate EntityManager. Exposes 
-			Hibernate's persistence provider and EntityManager extension interface -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
@@ -35,9 +33,7 @@
 	</bean>
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
-	<!-- Simple implementation of the standard JDBC DataSource interface, configuring 
-		the plain old JDBC DriverManager via bean properties -->
+	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" /> <property 
 		name="url" value="jdbc:oracle:thin:@10.10.31.152:1521:inpaths" /> <property name="username" 
@@ -48,10 +44,8 @@
 		<property name="entityManagerFactory" ref="entityManagerFactoryBean" />
 	</bean>
 
-	<!-- responsible for registering the necessary Spring components that power 
-		annotation-driven transaction management; such as when @Transactional methods 
-		are invoked -->
 	<tx:annotation-driven />
+	
 	<!-- End of DB Stuff -->
    
    <context:annotation-config></context:annotation-config>
@@ -82,4 +76,17 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- File Upload Configuration -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="20971520" /> <!-- Size in byte (Currently 20MB) -->
+		<property name="defaultEncoding" value="utf-8"/>
+	</bean>
+	
+	<!-- <task:scheduled-tasks scheduler="myScheduler"> <task:scheduled ref="verificationMailSender" 
+		method="sendVerificationMail" fixed-delay="120000" />
+	</task:scheduled-tasks>
+	<task:scheduler id="myScheduler" /> -->
 </beans> 

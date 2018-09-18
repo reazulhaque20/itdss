@@ -27,11 +27,14 @@ public class CustomersHome {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(Customers transientInstance) {
+	public BigDecimal persist(Customers transientInstance) {
 		log.debug("persisting Customers instance");
 		try {
+			BigDecimal customerID = getCustomersId();
+			transientInstance.setCId(getCustomersId());
 			entityManager.persist(transientInstance);
 			log.debug("persist successful");
+			return customerID;
 		} catch (RuntimeException re) {
 			log.error("persist failed", re);
 			throw re;
@@ -70,6 +73,18 @@ public class CustomersHome {
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;
+		}
+	}
+	
+	public BigDecimal getCustomersId() {
+		Query query;
+		try {
+			query = entityManager.createNativeQuery("select CUSTOMERS_SEQ.nextval from dual");
+			BigDecimal usersId = (BigDecimal) query.getSingleResult();
+			return usersId;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
 		}
 	}
 	

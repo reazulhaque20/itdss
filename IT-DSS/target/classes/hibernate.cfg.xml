@@ -12,6 +12,6 @@
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping class="com.web.bl.gen.Emails" />
+        
     </session-factory>
 </hibernate-configuration>

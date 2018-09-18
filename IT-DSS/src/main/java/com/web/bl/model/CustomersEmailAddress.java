@@ -1,8 +1,10 @@
 package com.web.bl.model;
-// Generated May 7, 2018 2:52:16 PM by Hibernate Tools 4.3.5.Final
+// Generated May 27, 2018 2:03:08 PM by Hibernate Tools 4.3.5.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,11 +20,16 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "CUSTOMERS_EMAIL_ADDRESS", schema = "EADDRESS")
+//@Table(name = "CUSTOMERS_EMAIL_ADDRESS", schema = "ADMIN")
 public class CustomersEmailAddress implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private BigDecimal ceaId;
 	private Customers customers;
-	private String primaryEmailAddress;
+	private String emailAddress;
 	private String emailFlag;
 	private String isverified;
 	private String verificationEmail1st;
@@ -38,6 +45,10 @@ public class CustomersEmailAddress implements java.io.Serializable {
 	private String flag5;
 	private String active;
 	private String secondEmailAddress;
+	private String isapproved;
+	private String updatedby;
+	private Date updateddate;
+	private String remarks;
 
 	public CustomersEmailAddress() {
 	}
@@ -46,13 +57,14 @@ public class CustomersEmailAddress implements java.io.Serializable {
 		this.ceaId = ceaId;
 	}
 
-	public CustomersEmailAddress(BigDecimal ceaId, Customers customers, String primaryEmailAddress, String emailFlag,
+	public CustomersEmailAddress(BigDecimal ceaId, Customers customers, String emailAddress, String emailFlag,
 			String isverified, String verificationEmail1st, Date verifEmail1stDate, String verificationEmail2nd,
 			Date verifEmail2ndDate, String verificationEmail3rd, Date verifEmail3rdDate, String flag1, String flag2,
-			String flag3, String flag4, String flag5, String active, String secondEmailAddress) {
+			String flag3, String flag4, String flag5, String active, String secondEmailAddress, String isapproved,
+			String updatedby, Date updateddate, String remarks) {
 		this.ceaId = ceaId;
 		this.customers = customers;
-		this.primaryEmailAddress = primaryEmailAddress;
+		this.emailAddress = emailAddress;
 		this.emailFlag = emailFlag;
 		this.isverified = isverified;
 		this.verificationEmail1st = verificationEmail1st;
@@ -68,10 +80,15 @@ public class CustomersEmailAddress implements java.io.Serializable {
 		this.flag5 = flag5;
 		this.active = active;
 		this.secondEmailAddress = secondEmailAddress;
+		this.isapproved = isapproved;
+		this.updatedby = updatedby;
+		this.updateddate = updateddate;
+		this.remarks = remarks;
 	}
 
 	@Id
-
+	/*@SequenceGenerator(name="cust_email_seq", sequenceName="CUST_EMAIL_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="cust_email_seq")*/
 	@Column(name = "CEA_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getCeaId() {
 		return this.ceaId;
@@ -81,7 +98,7 @@ public class CustomersEmailAddress implements java.io.Serializable {
 		this.ceaId = ceaId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "C_ID")
 	public Customers getCustomers() {
 		return this.customers;
@@ -91,13 +108,13 @@ public class CustomersEmailAddress implements java.io.Serializable {
 		this.customers = customers;
 	}
 
-	@Column(name = "PRIMARY_EMAIL_ADDRESS", length = 100)
-	public String getPrimaryEmailAddress() {
-		return this.primaryEmailAddress;
+	@Column(name = "EMAIL_ADDRESS", length = 500)
+	public String getEmailAddress() {
+		return this.emailAddress;
 	}
 
-	public void setPrimaryEmailAddress(String primaryEmailAddress) {
-		this.primaryEmailAddress = primaryEmailAddress;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 	@Column(name = "EMAIL_FLAG", length = 20)
@@ -236,6 +253,43 @@ public class CustomersEmailAddress implements java.io.Serializable {
 
 	public void setSecondEmailAddress(String secondEmailAddress) {
 		this.secondEmailAddress = secondEmailAddress;
+	}
+	
+	@Column(name = "ISAPPROVED", length = 10)
+	public String getIsapproved() {
+		return this.isapproved;
+	}
+
+	public void setIsapproved(String isapproved) {
+		this.isapproved = isapproved;
+	}
+
+	@Column(name = "UPDATEDBY", length = 200)
+	public String getUpdatedby() {
+		return this.updatedby;
+	}
+
+	public void setUpdatedby(String updatedby) {
+		this.updatedby = updatedby;
+	}
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "UPDATEDDATE", length = 7)
+	public Date getUpdateddate() {
+		return this.updateddate;
+	}
+
+	public void setUpdateddate(Date updateddate) {
+		this.updateddate = updateddate;
+	}
+
+	@Column(name = "REMARKS", length = 1000)
+	public String getRemarks() {
+		return this.remarks;
+	}
+	
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}
 
 }

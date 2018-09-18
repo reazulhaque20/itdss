@@ -10,12 +10,68 @@
 		<put-attribute name="body" value="" />
 	</definition>
 	
+	<definition name="login_baseLayout" template="/template/Login_Baselayout.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	
+	<definition name="mailConfirm_baseLayout" template="/template/MailConfirmation_Baselayout.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	
 	<definition name="user" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/user.jsp" />
 	</definition>
 	
 	<definition name="index" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+	</definition>
+	
+	<definition name="requestDetails" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/requestDetails.jsp" />
+	</definition>
+	
+	<definition name="pendingVerifications" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pendingVerifications.jsp" />
+	</definition>
+	
+	<definition name="updateRequest" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/updateRequest.jsp" />
+	</definition>
+	
+	<definition name="uploadPOD" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/uploadPOD.jsp" />
+	</definition>
+	
+	<definition name="ibRequest" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/ibRequest.jsp" />
+	</definition>
+	
+	<definition name="login" extends="login_baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/Login.jsp" />
+	</definition>
+	
+	<definition name="registration" extends="login_baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/Registration.jsp" />
+	</definition>
+	
+	<definition name="confirmMail" extends="mailConfirm_baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/ConfirmMail.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="ibReport" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/Reports/IbReport.jsp" />
+	</definition>
+	
+	<definition name="podReport" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/Reports/PodReport.jsp" />
+	</definition>
+	
+	<definition name="emailAddressReport" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/Reports/EmailAddressReport.jsp" />
+	</definition>
+	
+	<definition name="unauthorizedUser" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/unauthorizedUser.jsp" />
 	</definition>
 	
 </tiles-definitions>

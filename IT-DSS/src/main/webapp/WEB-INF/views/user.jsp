@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/datetimepicker/jquery.datetimepicker.css"/>
-<script src="resources/js/datetimepicker/jquery.js"></script>
+<!-- <script src="resources/js/datetimepicker/jquery.js"></script> -->
 <script src="resources/js/datetimepicker/jquery.datetimepicker.full.js"></script>
-<!-- <script type="text/javascript" src="resources/js/customDateTime/customTime.js"></script> -->
+<script type="text/javascript" src="resources/js/customDateTime/customTime.js"></script>
 </head>
 <body>
 User Page
